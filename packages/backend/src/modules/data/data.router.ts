@@ -1,10 +1,11 @@
 import express from "express";
 import {redisClient} from "../../common/redis";
 import {protectedRoute} from "../auth/auth.utils";
+import process from "process";
 
 const dataRouter = express.Router();
 
-const LIST_NAME = 'mylist';
+const LIST_NAME = process.env.LIST_NAME || 'mylist';
 
 dataRouter.post("/e1", async (req, res, next) => {
     const data = req.body.data;

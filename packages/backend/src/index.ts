@@ -35,16 +35,9 @@ createRoutes(app);
 
 app.use(errorHandler);
 
-// dataSource.initialize().then( () => {
 createConnection().then(() => {
     app.listen(PORT, async () => {
         console.log("Server is running on port", PORT);
     });
 
 })
-
-// }).catch((e) => {
-//     console.error(`Can't connect to DB!!!`)
-//     console.error(e)
-//     process.exit(0)
-// })

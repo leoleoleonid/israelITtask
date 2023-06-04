@@ -13,20 +13,21 @@ const getRequiredEnvVar = (name: string) => {
 };
 
 export const config = {
-  db: {
-    type: "postgres",
-    host: getRequiredEnvVar("POSTGRES_HOST"),
-    port: parseInt(getRequiredEnvVar("POSTGRES_PORT")),
-    username: getRequiredEnvVar("POSTGRES_USER"),
-    password: getRequiredEnvVar("POSTGRES_PASSWORD"),
-    database: getRequiredEnvVar("POSTGRES_DB"),
-    entities: [
-      "dist/**/*.entity{.ts,.js}",
-      "src/**/*.entity{.ts,.js}"
-    ],
-    synchronize: true,
-  },
+  // db: {
+  //   type: "postgres",
+  //   host: getRequiredEnvVar("POSTGRES_HOST"),
+  //   port: parseInt(getRequiredEnvVar("POSTGRES_PORT")),
+  //   username: getRequiredEnvVar("POSTGRES_USER"),
+  //   password: getRequiredEnvVar("POSTGRES_PASSWORD"),
+  //   database: getRequiredEnvVar("POSTGRES_DB"),
+  //   entities: [
+  //     "dist/**/*.entity{.ts,.js}",
+  //     "src/**/*.entity{.ts,.js}"
+  //   ],
+  //   synchronize: true,
+  // },
   port: parseInt(process.env.PORT || "8000", 10),
+  clientPort: parseInt(process.env.CLIENT_PORT || "8080", 10),
   redisUrl: process.env.REDIS || 'redis://127.0.0.1:6379'
 };
 

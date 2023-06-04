@@ -39,7 +39,7 @@ function createReqParams(): { options: RequestOptions , postData: string} {
     const postData = JSON.stringify({ data: (Math.random() + 1).toString(36).substring(7) });
     const options: RequestOptions = {
         hostname: 'localhost',
-        port: 1234,
+        port: 8000, //TODO to config
         path: '/e1',
         method: 'POST',
         headers: {

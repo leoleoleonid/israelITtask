@@ -3,8 +3,7 @@ import {NextFunction, Request, Response} from "express";
 import {ErrorException} from "../../common/errors/error-exception";
 import {ErrorCode} from "../../common/errors/error-code";
 
-//TODO to .env config
-const jwtSecret = 'mcb3DaS05Yvt';
+const jwtSecret = process.env.JWT_SECRET || 'mcb3DaS05Yvt';
 const header = { alg: 'HS256', typ: 'JWT' };
 
 export const generateTokenSync = () => {

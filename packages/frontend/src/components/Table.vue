@@ -63,7 +63,6 @@ export default {
             await this.getList(nextPage);
             this.currentPage = nextPage;
         }
-
     }
 }
 </script>
