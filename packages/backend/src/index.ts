@@ -5,12 +5,20 @@ import { config } from "./common/config";
 import {errorHandler} from "./common/errors/error-handler";
 import createRoutes from "./createRoutes";
 import bodyParser from "body-parser";
-import { createClient } from 'redis';
 import {createConnection} from "./common/redis";
+import process from "process";
+import cors from 'cors';
 
 const PORT = config.port;
 
 const app: Application = express();
+app.use(cors({
+    credentials: true,
+    "origin": `http://localhost:${process.env.CLIENT_PORT}`,
+    "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+    "preflightContinue": false,
+    "optionsSuccessStatus": 204
+}))
 // @ts-ignore
 app.use(bodyParser.urlencoded({ extended: true }));
 // @ts-ignore
